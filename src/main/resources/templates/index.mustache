@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="js/main.js"></script>
+    </head>
+    <body>
+        <h1>Projects {{ name }}</h1>
+        <ul id="persons"></ul>   
+        <a href="/api/person/1"> Person id=1</a>
+        <br> 
+        <a href="/api/person/2"> Person id=2</a>
+        <br>
+        <a href="/api/person/"> Person all</a>
+        <br>
+        
+		<form action="/api/person/add" method="POST" accept-charset="utf-8">
+    		Name: 
+    		<input type="text" name="name"/>    		
+    		Email:
+    		<input type="text" name="email"/>    		
+    		<input type="submit" value="Add"/>
+		</form>
+
+		<ul id="projects"></ul>      
+		<a href="/api/project/9"> Project id=9</a>
+        <br>
+        <a href="/api/project/"> Project all</a>
+        <br>
+        
+		<form action="/api/project/add" method="POST" accept-charset="utf-8">
+    		Name: 
+    		<input type="text" name="name"/>    		    		   		
+    		<input type="submit" value="Add"/>
+		</form>
+
+    </body>
+</html>
