@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo3.model.Project;
+import com.example.demo3.service.PersonServiceImpl;
 import com.example.demo3.service.ProjectService;
 
 @RestController
 @RequestMapping("/api/project")
 public class ProjectController {
-
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(ProjectController.class);
 	final ProjectService projectService;
 
 	public ProjectController(ProjectService projectService) {

@@ -11,12 +11,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo3.model.Person;
 import com.example.demo3.repository.PersonRepository;
+import com.example.demo3.rest.PersonController;
 import com.example.demo3.service.InitDBService;
 import com.example.demo3.service.PersonService;
 
 @Controller
 public class IndexController {
-		
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(IndexController.class);	
 	final PersonService personService;
 	final InitDBService initDBService;
 	    
