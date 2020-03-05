@@ -1,9 +1,15 @@
 package com.example.demo3;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +22,7 @@ import com.example.demo3.service.InitDBService;
 import com.example.demo3.service.PersonService;
 
 @Controller
-public class IndexController {
+public class IndexController extends HttpServlet{
 	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(IndexController.class);	
 	final PersonService personService;
 	final InitDBService initDBService;
@@ -44,5 +50,9 @@ public class IndexController {
         return new ModelAndView("index", model);
     }
 
+	@Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
+    }
 	
 }

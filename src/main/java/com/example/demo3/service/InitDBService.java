@@ -71,7 +71,7 @@ public class InitDBService {
 		 projectService.save(project2);	
 		 //person8.setProject(project2);
 		 
-		 long i = 1L;
+		/* long i = 1L;
 		 person1 = personService.getById(i);
 		 log.info("!!!!!!!"+person1.getName()+" /// "+project1.getName());
 		 person1.setProject(project1);
@@ -83,7 +83,7 @@ public class InitDBService {
 		 //person7.setProject(project1);
 		 log.info("!!!!!!!"+personService.save(person1));
 		 log.info("!!!!!!!"+personService.getById(i));
-		 
+		 */
 	 }
 	
 	
