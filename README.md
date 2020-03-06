@@ -9,24 +9,29 @@ start
 
 
 DB model
+
 	Person.java
 	Project.java
 
 
 чтение из базьі repository
+
 	PersonRepository
 	ProjectRepository
 
 обработка service
+
 	PersonService
 	ProjectService
 
 rest api
+
 	PersonController
 	ProjectController	
 	IndexController
 	
 отображение
+
 	index.mustache
 	main.js
 	
