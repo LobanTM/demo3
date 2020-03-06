@@ -1,0 +1,31 @@
+тестирование REST API
+getAll
+	fetch('/api/project/').then(response => response.json().then(console.log))
+	fetch('/api/person/').then(response => response.json().then(console.log))
+getOne
+	fetch('/api/project/9').then(response => response.json().then(console.log))
+	fetch('/api/person/1').then(response => response.json().then(console.log))
+create
+	fetch(
+			'/api/person/', 
+			{ 
+				method: 'POST', 
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ text: 'nn'})
+			}
+		).then(result => result.json().then(console.log))
+// PUT save existing
+	fetch(
+			'/api/person/1', 
+			{ 
+				method: 'PUT', 
+				headers: { 'Content-Type': 'application/json' }, 
+				body: JSON.stringify({ text: 'nn'})
+			}
+		).then(result => result.json().then(console.log));
+
+// DELETE existing
+fetch('/api/person/2', { method: 'DELETE' }).then(result => console.log(result))
+
+
+

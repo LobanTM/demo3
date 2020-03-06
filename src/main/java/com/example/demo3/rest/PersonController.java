@@ -5,14 +5,18 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo3.model.Person;
+import com.example.demo3.model.Project;
 import com.example.demo3.service.PersonService;
 
 @RestController
@@ -26,11 +30,38 @@ public class PersonController {
 		this.personService = personService;
 	}
 	
+	//get all persons
 	@GetMapping("/")
     public Iterable<Person> getPersons() {        
         return personService.getAll();
-    }
-	//get all persons
+    }	
+	
+	//get person by id
+	@GetMapping("{id}")
+	public Person getOne(@PathVariable("id") long id) {
+		return personService.getById(id);
+	} 
+	
+	//add new person
+	@PostMapping("/")
+	public Person create(@RequestBody String name, String email) {
+		Person person = new Person(name, email,String.format("Added at %s", LocalDateTime.now()));
+		return personService.save(person);
+	}
+	//update person by id
+	@PutMapping("{id}")
+	public Person update(@PathVariable("id") long id,	@RequestBody String name) {
+		Person existingPerson = personService.getById(id);
+		existingPerson.setName(name);
+    	return personService.save(existingPerson);
+	}
+	//delete person by id
+	@DeleteMapping("{id}")
+	public void delete(@PathVariable("id") long id) {
+		Person person = personService.getById(id);
+		personService.delete(id);
+	}
+	/*
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ResponseEntity<List<Person>> getAllPersons(){
 	   List<Person> persons = personService.getAll();
@@ -83,7 +114,7 @@ public class PersonController {
             return new ResponseEntity<>(HttpStatus.GONE);
         }
     }  
-	
+	*/
 	
 	/*@RequestMapping(value = "/email/{email}", method = RequestMethod.GET)
 	public ResponseEntity<Person> getPerson(@PathVariable("email") String email){

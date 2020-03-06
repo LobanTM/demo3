@@ -16,9 +16,13 @@ rest api
 отображение
 	index.mustache
 	main.js
+тестьі
+
 
 сборка
 ./mvnw package
 
 start
-java -jar ./target/demo3-0.0.1-SNAPSHOT.jar
+java -jar ./demo3-0.0.1-SNAPSHOT.jar
+
+
