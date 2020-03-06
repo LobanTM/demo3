@@ -34,4 +34,5 @@ rest api
 
 
 сборка
+
 	./mvnw package
